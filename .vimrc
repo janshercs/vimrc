@@ -17,14 +17,20 @@ Plugin 'gmarik/Vundle.vim'
 " ...
 
 " All of your Plugins must be added before the following line
-Plugin 'vim-scripts/indentpython.vim'
-Bundle 'Valloric/YouCompleteMe'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'nvie/vim-flake8'
-Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
+" vim appearances
 Plugin 'joshdick/onedark.vim'
 Plugin 'vim-airline/vim-airline'
+" General IDE
+Bundle 'Valloric/YouCompleteMe'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+Plugin 'dominikduda/vim_current_word'
+" Go
+Plugin 'fatih/vim-go'
+" Python
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'nvie/vim-flake8'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -50,13 +56,20 @@ set encoding=utf-8
 
 
 " IDE appearance
-
+set showcmd
 set nu
 set relativenumber
 
 let python_highlight_all=1
 syntax on
 
+let g:airline_theme='onedark'
+colo onedark
+
+" twin word highlighting settings
+let g:vim_current_word#enabled = 1
+hi CurrentWord ctermfg=205
+hi CurrentWordTwins ctermbg=237
 
 "python with virtualenv support
 
@@ -69,8 +82,6 @@ if 'VIRTUAL_ENV' in os.environ:
   print(project_base_dir)
   execfile(activate_this, dict(__file__=activate_this))
 EOF
-
-set showcmd
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
@@ -87,7 +98,4 @@ if (empty($TMUX))
     set termguicolors
   endif
 endif
-
-let g:airline_theme='onedark'
-colo onedark
 
