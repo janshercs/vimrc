@@ -69,8 +69,8 @@ colo onedark
 
 " twin word highlighting settings
 let g:vim_current_word#enabled = 1
-hi CurrentWord ctermfg=205
-hi CurrentWordTwins ctermbg=237
+" hi CurrentWord ctermfg=205
+" hi CurrentWordTwins ctermbg=237
 
 " Close buffer after autosuggest
 let g:ycm_autoclose_preview_window_after_completion = 1

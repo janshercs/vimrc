@@ -2,19 +2,17 @@ set nocompatible              " required
 filetype off                  " required
 "test test
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+set rtp+=~/.config/nvim/bundle/Vundle.vim
+" call vundle#begin()
 
 " alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
-
-" ...
 
 " All of your Plugins must be added before the following line
 " vim appearances
@@ -69,8 +67,8 @@ colo onedark
 
 " twin word highlighting settings
 let g:vim_current_word#enabled = 1
-hi CurrentWord ctermfg=205
-hi CurrentWordTwins ctermbg=237
+hi CurrentWord guifg=#ff87ff
+hi CurrentWordTwins guifg=#00ff87
 
 " Close buffer after autosuggest
 let g:ycm_autoclose_preview_window_after_completion = 1
