@@ -22,6 +22,7 @@ Plugin 'joshdick/onedark.vim'
 Plugin 'vim-airline/vim-airline'
 " General IDE
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'yssl/QFEnter'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
@@ -70,6 +71,23 @@ colo onedark
 let g:vim_current_word#enabled = 1
 hi CurrentWord ctermfg=205
 hi CurrentWordTwins ctermbg=237
+
+" Close buffer after autosuggest
+let g:ycm_autoclose_preview_window_after_completion = 1
+
+" For Quickfix/Location list
+let g:qfenter_keymap = {}
+let g:qfenter_keymap.vopen = ['<C-v>']
+let g:qfenter_keymap.hopen = ['<C-CR>', '<C-s>', '<C-x>']
+let g:qfenter_keymap.topen = ['<C-t>']
+
+" Keymappings
+" Go
+"runs all tests in current file
+autocmd BufEnter *.go nmap <leader>tt <Plug>(go-test) 
+autocmd BufEnter *.go nmap <leader>t  <Plug>(go-test-func)
+autocmd BufEnter *.go nmap <leader>i  <Plug>(go-implements)
+autocmd BufEnter *.go nmap <leader>c  <Plug>(go-callers)
 
 "python with virtualenv support
 
