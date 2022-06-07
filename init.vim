@@ -3,6 +3,7 @@ filetype off                  " required
 "test test
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.config/nvim/bundle/Vundle.vim
+set rtp+=/usr/local/opt/fzf
 " call vundle#begin()
 
 " alternatively, pass a path where Vundle should install plugins
@@ -23,13 +24,16 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'yssl/QFEnter'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
+Plugin 'junegunn/fzf.vim'
+Plugin 'junegunn/fzf'
 Plugin 'dominikduda/vim_current_word'
 " Go
 Plugin 'fatih/vim-go'
 " Python
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'nvie/vim-flake8'
+" Git
+Plugin 'tpope/vim-fugitive'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -82,11 +86,13 @@ let g:qfenter_keymap.topen = ['<C-t>']
 " Keymappings
 " Go
 "runs all tests in current file
-autocmd BufEnter *.go nmap <leader>tt <Plug>(go-test) 
-autocmd BufEnter *.go nmap <leader>t  <Plug>(go-test-func)
-autocmd BufEnter *.go nmap <leader>i  <Plug>(go-implements)
-autocmd BufEnter *.go nmap <leader>c  <Plug>(go-callers)
+autocmd BufEnter *.go nmap <leader>tt  <Plug>(go-test) 
+autocmd BufEnter *.go nmap <leader>t   <Plug>(go-test-func)
+autocmd BufEnter *.go nmap <leader>i   <Plug>(go-implements)
+autocmd BufEnter *.go nmap <leader>c   <Plug>(go-callers)
+autocmd BufEnter *.go nmap <leader>ref <Plug>(go-referrers)
 
+nnoremap <silent> <C-f> :Files<CR>
 "python with virtualenv support
 
 python3 << EOF

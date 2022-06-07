@@ -3,6 +3,7 @@ filetype off                  " required
 "test test
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=/usr/local/opt/fzf
 call vundle#begin()
 
 " alternatively, pass a path where Vundle should install plugins
@@ -25,7 +26,9 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'yssl/QFEnter'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
+Plugin 'junegunn/fzf.vim'
+Plugin 'junegunn/fzf'
+" Plugin 'kien/ctrlp.vim'
 Plugin 'dominikduda/vim_current_word'
 " Go
 Plugin 'fatih/vim-go'
