@@ -57,7 +57,6 @@ au BufNewFile,BufRead *.py
 
 set encoding=utf-8
 
-
 " IDE appearance
 set showcmd
 set nu
