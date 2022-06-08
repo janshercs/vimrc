@@ -68,8 +68,13 @@ syntax on
 let g:airline_theme='onedark'
 colo onedark
 
+" Go highlighting settings
+let g:go_auto_sameids = 1
+hi def goSameId guifg=#00ff87
+
 " twin word highlighting settings
 let g:vim_current_word#enabled = 1
+let g:vim_current_word#excluded_filetypes = ['go']
 hi CurrentWord guifg=#ff87ff
 hi CurrentWordTwins guifg=#00ff87
 
