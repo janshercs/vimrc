@@ -92,7 +92,7 @@ autocmd BufEnter *.go nmap <leader>i   <Plug>(go-implements)
 autocmd BufEnter *.go nmap <leader>c   <Plug>(go-callers)
 autocmd BufEnter *.go nmap <leader>ref <Plug>(go-referrers)
 
-nnoremap <silent> <C-f> :Files<CR>
+nnoremap <silent> <C-p> :Files<CR>
 "python with virtualenv support
 
 python3 << EOF
