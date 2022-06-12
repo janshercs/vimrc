@@ -56,6 +56,10 @@ au BufNewFile,BufRead *.py
     \ set fileformat=unix
 
 set encoding=utf-8
+" Themes and all
+let g:airline_theme='onedark'
+let g:airline_powerline_fonts = 1
+colo onedark
 
 " IDE appearance
 set showcmd
@@ -65,8 +69,6 @@ set relativenumber
 let python_highlight_all=1
 syntax on
 
-let g:airline_theme='onedark'
-colo onedark
 
 " Go highlighting settings
 let g:go_auto_sameids = 1
