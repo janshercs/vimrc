@@ -73,13 +73,13 @@ syntax on
 
 " Go highlighting settings
 let g:go_auto_sameids = 1
-hi def goSameId guifg=#00ff87
+hi def goSameId ctermfg=48
 
 " twin word highlighting settings
 let g:vim_current_word#enabled = 1
 let g:vim_current_word#excluded_filetypes = ['go']
-hi CurrentWord guifg=#ff87ff
-hi CurrentWordTwins guifg=#00ff87
+hi CurrentWord ctermfg=213
+hi CurrentWordTwins ctermfg=48
 
 " Close buffer after autosuggest
 let g:ycm_autoclose_preview_window_after_completion = 1
