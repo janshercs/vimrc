@@ -62,6 +62,7 @@ let g:airline_powerline_fonts = 1
 colo onedark
 
 " IDE appearance
+set nowrap
 set showcmd
 set nu
 set relativenumber
