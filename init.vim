@@ -2,40 +2,34 @@ set nocompatible              " required
 filetype off                  " required
 "test test
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.config/nvim/bundle/Vundle.vim
+call plug#begin(stdpath('data') . '/plugged')
 set rtp+=/usr/local/opt/fzf
-" call vundle#begin()
-
-" alternatively, pass a path where Vundle should install plugins
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-" add all your plugins here (note older versions of Vundle
-" used Bundle instead of Plugin)
 
 " All of your Plugins must be added before the following line
 " vim appearances
-Plugin 'joshdick/onedark.vim'
-Plugin 'vim-airline/vim-airline'
+Plug 'joshdick/onedark.vim'
+Plug 'vim-airline/vim-airline'
 " General IDE
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'yssl/QFEnter'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'scrooloose/nerdtree'
-Plugin 'junegunn/fzf.vim'
-Plugin 'junegunn/fzf'
-Plugin 'dominikduda/vim_current_word'
+" Bundle 'Valloric/YouCompleteMe'
+Plug 'yssl/QFEnter'
+Plug 'vim-syntastic/syntastic'
+Plug 'scrooloose/nerdtree'
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf'
+Plug 'dominikduda/vim_current_word'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Go
-Plugin 'fatih/vim-go'
+Plug 'fatih/vim-go'
 " Python
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'nvie/vim-flake8'
+Plug 'vim-scripts/indentpython.vim'
+Plug 'nvie/vim-flake8'
 " Git
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
-call vundle#end()            " required
+call plug#end()            " required
 filetype plugin indent on    " required
 
 " formatting for code
@@ -61,11 +55,16 @@ let g:airline_theme='onedark'
 let g:airline_powerline_fonts = 1
 colo onedark
 
+" vim performance
+set updatetime=300
+
 " IDE appearance
 set nowrap
 set showcmd
+"set noshowmode " displays vim-go function signature
 set nu
 set relativenumber
+set signcolumn=number
 
 let python_highlight_all=1
 syntax on
@@ -77,9 +76,18 @@ command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 
-" Go highlighting settings
+" vim-go settings
 let g:go_auto_sameids = 1
 hi def goSameId ctermfg=48
+
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_functions = 1
+
+" let g:go_auto_type_info = 1
+let g:go_fillstruct_mode = 'gopls'
 
 " twin word highlighting settings
 let g:vim_current_word#enabled = 1
@@ -103,8 +111,30 @@ autocmd BufEnter *.go nmap <leader>tt  <Plug>(go-test)
 autocmd BufEnter *.go nmap <leader>t   <Plug>(go-test-func)
 autocmd BufEnter *.go nmap <leader>i   <Plug>(go-implements)
 autocmd BufEnter *.go nmap <leader>c   <Plug>(go-callers)
+autocmd BufEnter *.go nmap <leader>r   <Plug>(go-rename)
 autocmd BufEnter *.go nmap <leader>ref <Plug>(go-referrers)
+autocmd BufEnter *.go nmap <leader>gd  <Plug>(go-def-vertical)
+autocmd BufEnter *.go nmap <leader>alt <Plug>(go-alternate-vertical)
 
+autocmd BufEnter *.go nmap <leader>fill :GoFillStruct<CR>
+
+" coc autocomplete keymappings
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ CheckBackspace() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <c-space> coc#refresh()
+autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" FZF keymapping
 nnoremap <silent> <C-p> :GFiles<CR>
 "python with virtualenv support
 
