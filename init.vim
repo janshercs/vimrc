@@ -75,6 +75,8 @@ autocmd BufEnter *.go nmap <leader>alt <Plug>(go-alternate-vertical)
 
 autocmd BufEnter *.go nmap <leader>fill :GoFillStruct<CR>
 
+let g:UltiSnipsExpandTrigger="<C-space>"
+
 " coc autocomplete keymappings
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
