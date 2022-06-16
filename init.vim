@@ -1,24 +1,13 @@
 set nocompatible              " required
 filetype off                  " required
+set encoding=utf-8
 "test test
 set rtp+=/usr/local/opt/fzf
 :lua require('init')
 
-au BufNewFile,BufRead *.js, *.html, *.css
-    \ set tabstop=2
-    \ set softtabstop=2
-    \ set shiftwidth=2
-
-au BufNewFile,BufRead *.py
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
-
-set encoding=utf-8
+autocmd Filetype lua setlocal tabstop=2
+autocmd Filetype lua setlocal shiftwidth=2
+"
 " Themes and all
 let g:airline_theme='onedark'
 let g:airline_powerline_fonts = 1
@@ -35,7 +24,6 @@ set nu
 set relativenumber
 set signcolumn=number
 
-let python_highlight_all=1
 syntax on
 
 " Ag/FZF settings
@@ -104,8 +92,8 @@ function! CheckBackspace() abort
 endfunction
 
 " FZF and Telescope keymapping
-nnoremap <silent> <C-p> :Telescope git_files<CR>
-nnoremap <silent> <C-f> :Ag<CR>
+" nnoremap <silent> <C-p> :Telescope git_files<CR>
+" nnoremap <silent> <C-f> :Ag<CR>
 "python with virtualenv support
 
 python3 << EOF
