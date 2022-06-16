@@ -1,39 +1,8 @@
 set nocompatible              " required
 filetype off                  " required
 "test test
-" set the runtime path to include Vundle and initialize
-call plug#begin(stdpath('data') . '/plugged')
 set rtp+=/usr/local/opt/fzf
-
-" All of your Plugins must be added before the following line
-" vim appearances
-Plug 'joshdick/onedark.vim'
-Plug 'vim-airline/vim-airline'
-" General IDE
-" Bundle 'Valloric/YouCompleteMe'
-Plug 'yssl/QFEnter'
-Plug 'vim-syntastic/syntastic'
-Plug 'scrooloose/nerdtree'
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/fzf'
-Plug 'dominikduda/vim_current_word'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Go
-Plug 'fatih/vim-go'
-" Python
-Plug 'vim-scripts/indentpython.vim'
-Plug 'nvie/vim-flake8'
-" Git
-Plug 'tpope/vim-fugitive'
-
-call plug#end()            " required
-filetype plugin indent on    " required
-
-" formatting for code
-" au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+:lua require('init')
 
 au BufNewFile,BufRead *.js, *.html, *.css
     \ set tabstop=2
@@ -134,8 +103,9 @@ function! CheckBackspace() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" FZF keymapping
-nnoremap <silent> <C-p> :GFiles<CR>
+" FZF and Telescope keymapping
+nnoremap <silent> <C-p> :Telescope git_files<CR>
+nnoremap <silent> <C-f> :Ag<CR>
 "python with virtualenv support
 
 python3 << EOF
