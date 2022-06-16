@@ -1,16 +1,3 @@
--- local actions = require("telescope.actions")
--- require("telescope").setup{
---   defaults = {
---     mappings = {
---       i = {
--- 				["<C-j>"] = actions.move_selection_next,
--- 				["<C-k>"] = actions.move_selection_previous,
--- 				["<esc>"] = actions.close,
---       },
---     },
---   }
--- }
--- Functional wrapper for mapping custom keybindings
 function map(mode, lhs, rhs, opts)
     local options = { noremap = true }
     if opts then

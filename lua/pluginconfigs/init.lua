@@ -1,1 +1,1 @@
- require("telescopeconfig")
+ require("pluginconfigs.telescope")
