@@ -1,0 +1,9 @@
+{
+	"languageserver": {
+	    "golang": {
+	      "command": "gopls",
+	      "filetypes": ["go"]
+	    }
+	},
+	"snippets.ultisnips.directories": ["UltiSnips", "gosnippets/UltiSnips"]
+}
