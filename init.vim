@@ -34,17 +34,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 
 " vim-go settings
-let g:go_auto_sameids = 1
 hi def goSameId ctermfg=48
-
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_function_calls = 1
-let g:go_highlight_functions = 1
-
-" let g:go_auto_type_info = 1
-let g:go_fillstruct_mode = 'gopls'
 
 " twin word highlighting settings
 let g:vim_current_word#enabled = 1
@@ -76,6 +66,7 @@ autocmd BufEnter *.go nmap <leader>alt <Plug>(go-alternate-vertical)
 autocmd BufEnter *.go nmap <leader>fill :GoFillStruct<CR>
 
 let g:UltiSnipsExpandTrigger="<C-space>"
+imap <C-l> <Plug>(coc-snippets-expand)
 
 " coc autocomplete keymappings
 inoremap <silent><expr> <TAB>
@@ -85,18 +76,13 @@ inoremap <silent><expr> <TAB>
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-inoremap <silent><expr> <c-space> coc#refresh()
+
 autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 
 function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-
-" FZF and Telescope keymapping
-" nnoremap <silent> <C-p> :Telescope git_files<CR>
-" nnoremap <silent> <C-f> :Ag<CR>
-"python with virtualenv support
 
 python3 << EOF
 import os
