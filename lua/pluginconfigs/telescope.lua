@@ -1,6 +1,8 @@
 local actions = require("telescope.actions")
 require("telescope").setup{
   defaults = {
+    file_sorter =  require'telescope.sorters'.get_fzy_sorter,
+    generic_sorter =  require'telescope.sorters'.get_fzy_sorter,
     mappings = {
       i = {
 				["<C-j>"] = actions.move_selection_next,
@@ -10,3 +12,5 @@ require("telescope").setup{
     },
   }
 }
+
+require('telescope').load_extension('fzf')

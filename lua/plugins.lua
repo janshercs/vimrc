@@ -19,6 +19,7 @@ return require('packer').startup(function()
 	use 'dominikduda/vim_current_word'
 	use 'nvim-lua/plenary.nvim'
 	use 'nvim-telescope/telescope.nvim'
+	use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 	-- Autocomplete
 	-- use 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 	use {'neoclide/coc.nvim', branch = 'release'}
