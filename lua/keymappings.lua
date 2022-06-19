@@ -10,10 +10,10 @@ end
 map("n", "<C-space>", "<Cmd>nohlsearch|diffupdate|normal! <C-L><CR>", { silent = true })
 
 -- window navigation
-map("n", "<C-k>", ":wincmd k", { silent = true })
-map("n", "<C-j>", ":wincmd j", { silent = true })
-map("n", "<C-h>", ":wincmd h", { silent = true })
-map("n", "<C-l>", ":wincmd l", { silent = true })
+map("n", "<C-k>", ":wincmd k <CR>", { silent = true })
+map("n", "<C-j>", ":wincmd j <CR>", { silent = true })
+map("n", "<C-h>", ":wincmd h <CR>", { silent = true })
+map("n", "<C-l>", ":wincmd l <CR>", { silent = true })
 
 -- telescope
 map("n", "<C-p>", ":Telescope git_files<CR>", { silent = true })
