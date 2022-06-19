@@ -29,10 +29,6 @@ syntax on
 " Ag/FZF settings
 command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
-" Syntastic settings
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-
 " vim-go settings
 hi def goSameId ctermfg=48
 

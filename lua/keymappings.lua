@@ -6,5 +6,18 @@ function map(mode, lhs, rhs, opts)
     vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
+-- clear highlights
+map("n", "<C-space>", "<Cmd>nohlsearch|diffupdate|normal! <C-L><CR>", { silent = true })
+
+-- window navigation
+map("n", "<C-k>", ":wincmd k", { silent = true })
+map("n", "<C-j>", ":wincmd j", { silent = true })
+map("n", "<C-h>", ":wincmd h", { silent = true })
+map("n", "<C-l>", ":wincmd l", { silent = true })
+
+-- telescope
 map("n", "<C-p>", ":Telescope git_files<CR>", { silent = true })
 map("n", "<C-f>", ":Telescope live_grep<CR>", { silent = true })
+
+-- coc
+map("n", "<C-n>", "<Plug>(coc-diagnostic-next)", { silent = true})
