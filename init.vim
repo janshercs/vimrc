@@ -1,7 +1,7 @@
 set nocompatible              " required
 filetype off                  " required
 set encoding=utf-8
-"test test
+
 set rtp+=/usr/local/opt/fzf
 :lua require('init')
 
@@ -25,9 +25,6 @@ set relativenumber
 set signcolumn=number
 
 syntax on
-
-" Ag/FZF settings
-command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
 " vim-go settings
 hi def goSameId ctermfg=48
@@ -62,7 +59,6 @@ autocmd BufEnter *.go nmap <leader>alt <Plug>(go-alternate-vertical)
 autocmd BufEnter *.go nmap <leader>fill :GoFillStruct<CR>
 
 let g:UltiSnipsExpandTrigger="<C-space>"
-imap <C-l> <Plug>(coc-snippets-expand)
 
 " coc autocomplete keymappings
 inoremap <silent><expr> <TAB>
