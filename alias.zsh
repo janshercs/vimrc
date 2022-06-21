@@ -1,4 +1,4 @@
-alias subl="sublime"
-alias pablo="cd ~/Documents/panda/pd-pablo-payment-gateway"
+# alias for some binaries
 alias vim="nvim"
+alias ls="exa"
 

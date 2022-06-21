@@ -57,6 +57,14 @@ autocmd BufEnter *.go nmap <leader>gd  <Plug>(go-def-vertical)
 autocmd BufEnter *.go nmap <leader>alt <Plug>(go-alternate-vertical)
 
 autocmd BufEnter *.go nmap <leader>fill :GoFillStruct<CR>
+autocmd BufEnter *.go nmap <leader>b    :GoDebugBreakpoint<CR>
+autocmd BufEnter *.go nmap <leader>dt   :GoDebugTestFunc<CR>
+
+let g:go_debug_mappings = {
+    \ '(go-debug-continue)': {'key': 'c', 'arguments': '<nowait>'},
+    \ '(go-debug-next)': {'key': 'n', 'arguments': '<nowait>'},
+    \ '(go-debug-step)': {'key': 's'},
+  \}
 
 let g:UltiSnipsExpandTrigger="<C-space>"
 
