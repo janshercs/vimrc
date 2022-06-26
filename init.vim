@@ -7,7 +7,7 @@ set rtp+=/usr/local/opt/fzf
 
 autocmd Filetype lua setlocal tabstop=2
 autocmd Filetype lua setlocal shiftwidth=2
-"
+
 " Themes and all
 let g:airline_theme='onedark'
 let g:airline_powerline_fonts = 1
@@ -19,7 +19,6 @@ set updatetime=300
 " IDE appearance
 set nowrap
 set showcmd
-"set noshowmode " displays vim-go function signature
 set nu
 set relativenumber
 set signcolumn=number
@@ -45,21 +44,6 @@ let g:qfenter_keymap.hopen = ['<C-CR>', '<C-s>', '<C-x>']
 let g:qfenter_keymap.topen = ['<C-t>']
 
 " Keymappings
-" Go
-"runs all tests in current file
-autocmd BufEnter *.go nmap <leader>tt  <Plug>(go-test) 
-autocmd BufEnter *.go nmap <leader>t   <Plug>(go-test-func)
-autocmd BufEnter *.go nmap <leader>i   <Plug>(go-implements)
-autocmd BufEnter *.go nmap <leader>c   <Plug>(go-callers)
-autocmd BufEnter *.go nmap <leader>r   <Plug>(go-rename)
-autocmd BufEnter *.go nmap <leader>ref <Plug>(go-referrers)
-autocmd BufEnter *.go nmap <leader>gd  <Plug>(go-def-vertical)
-autocmd BufEnter *.go nmap <leader>alt <Plug>(go-alternate-vertical)
-
-autocmd BufEnter *.go nmap <leader>fill :GoFillStruct<CR>
-autocmd BufEnter *.go nmap <leader>b    :GoDebugBreakpoint<CR>
-autocmd BufEnter *.go nmap <leader>dt   :GoDebugTestFunc<CR>
-
 let g:go_debug_mappings = {
     \ '(go-debug-continue)': {'key': 'c', 'arguments': '<nowait>'},
     \ '(go-debug-next)': {'key': 'n', 'arguments': '<nowait>'},
@@ -82,6 +66,12 @@ autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" autocmd BufLeave *.go call GoFmtAndSave()
+function GoFmtAndSave()
+	:GoFmt
+	:w
 endfunction
 
 python3 << EOF
