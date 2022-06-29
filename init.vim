@@ -24,6 +24,9 @@ set relativenumber
 set signcolumn=number
 
 syntax on
+" Setting grep to rg
+set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+nmap <leader>* :grep <cWORD> <CR>
 
 " vim-go settings
 hi def goSameId ctermfg=48
