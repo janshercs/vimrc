@@ -5,8 +5,8 @@ set encoding=utf-8
 set rtp+=/usr/local/opt/fzf
 :lua require('init')
 
-autocmd Filetype lua setlocal tabstop=2
-autocmd Filetype lua setlocal shiftwidth=2
+autocmd Filetype lua,javascript setlocal tabstop=2
+autocmd Filetype lua,javascript setlocal shiftwidth=2
 
 " Themes and all
 let g:airline_theme='onedark'

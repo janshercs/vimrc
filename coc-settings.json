@@ -1,9 +1,10 @@
 {
-	"languageserver": {
-	    "golang": {
-	      "command": "gopls",
-	      "filetypes": ["go"]
-	    }
-	},
-	"snippets.ultisnips.directories": ["UltiSnips", "gosnippets/UltiSnips"]
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "filetypes": ["go"]
+    }
+  },
+  "snippets.ultisnips.directories": ["UltiSnips", "gosnippets/UltiSnips"],
+  "coc.preferences.formatOnSaveFiletypes": ["json", "markdown", "javascript"]
 }

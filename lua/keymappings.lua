@@ -20,4 +20,7 @@ map("n", "<C-p>", ":Telescope git_files<CR>", { silent = true })
 map("n", "<C-f>", ":Telescope live_grep<CR>", { silent = true })
 
 -- coc
-map("n", "<C-n>", "<Plug>(coc-diagnostic-next)", { silent = true})
+map("n", "<C-n>", "<Plug>(coc-diagnostic-next)", { silent = true })
+
+-- File tree toggle
+map("n", "<C-t>", ":NERDTreeToggle<CR>", { silent = true })
