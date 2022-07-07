@@ -20,6 +20,7 @@ return require('packer').startup(function()
 	use 'nvim-lua/plenary.nvim'
 	use 'nvim-telescope/telescope.nvim'
 	use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+	use 'tpope/vim-surround'
 	-- Autocomplete
 	-- use 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 	use {'neoclide/coc.nvim', branch = 'release'}

@@ -12,7 +12,6 @@ end
 
 local autocmds = {
    gofiles = {
-        { "BufLeave", "*.go", "call GoFmtAndSave()" };
 				{ "BufEnter", "*.go", "nmap <leader>tt   <Plug>(go-test)"};
 				{ "BufEnter", "*.go", "nmap <leader>t    <Plug>(go-test-func)"};
 				{ "BufEnter", "*.go", "nmap <leader>i    <Plug>(go-implements)"};
@@ -24,6 +23,7 @@ local autocmds = {
 				{ "BufEnter", "*.go", "nmap <leader>fill :GoFillStruct<CR>"};
 				{ "BufEnter", "*.go", "nmap <leader>b    :GoDebugBreakpoint<CR>"};
 				{ "BufEnter", "*.go", "nmap <leader>dt   :GoDebugTestFunc<CR>"};
+				{ "BufEnter", "*.go", "nmap gd           :GoDef<CR>"};
     };
 }
 

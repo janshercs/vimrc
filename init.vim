@@ -33,7 +33,7 @@ hi def goSameId ctermfg=48
 
 " twin word highlighting settings
 let g:vim_current_word#enabled = 1
-let g:vim_current_word#excluded_filetypes = ['go']
+let g:vim_current_word#excluded_filetypes = []
 hi CurrentWord ctermfg=213
 hi CurrentWordTwins ctermfg=48
 
