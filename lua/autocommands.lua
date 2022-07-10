@@ -25,6 +25,9 @@ local autocmds = {
 				{ "BufEnter", "*.go", "nmap <leader>dt   :GoDebugTestFunc<CR>"};
 				{ "BufEnter", "*.go", "nmap gd           :GoDef<CR>"};
     };
+		mdfiles = {
+			{ "BufEnter", "*.md", ":set wrap"};
+		}
 }
 
 nvim_create_augroups(autocmds)
