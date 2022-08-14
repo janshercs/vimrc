@@ -19,3 +19,10 @@ bof() {
 	fi
 	open https://"$2".fd-admin.com/default/dashboard/index
 }
+
+kkube() {
+	configDir="/Users/j.her/Documents/pd-box/chapters/infra/k8s-configs"
+	config="config.staging-eu-1-v121-green"
+	pod=$(kubectl --kubeconfig="$configDir/$config" get pods -l 'app in (pablo, pablo-grpc, pablo-refund-worker, pablo-methods-worker, pablo-refund-retry-cron)' | grep "$service" |awk '{ print $1 }')
+	container=$(echo $pod | sed 's/-[a-zA-Z0-9]*-[a-zA-Z0-9]*$//')
+}
